@@ -11,7 +11,9 @@
     "build": "tsc",
     "serve": "node dist/index.ts",
     "prisma:generate": "sh -c 'if [ -f .env.local ]; then cp .env.local .env; fi; npx prisma generate'",
-    "prisma:migrate": "sh -c 'if [ -f .env.local ]; then cp .env.local .env; fi; npx prisma migrate dev'"
+    "prisma:migrate": "sh -c 'if [ -f .env.local ]; then cp .env.local .env; fi; npx prisma migrate dev'",
+    "prisma:migrate:deploy": "sh -c 'if [ -f .env.local ]; then cp .env.local .env; fi; npx prisma migrate deploy'",
+    "start:prod": "npm run prisma:generate && npm run prisma:migrate:deploy && node dist/index.js"
   },
   "author": "",
   "license": "ISC",
